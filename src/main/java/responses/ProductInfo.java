@@ -16,6 +16,8 @@ public class ProductInfo {
   private Integer bonus;
   private Integer quantity;
   private Double total;
+  private BasketItem basketItem;
+
   // Constructor
   public ProductInfo(Map<String, Object> map) {
     this.id = (Integer) map.get("id");
@@ -30,8 +32,21 @@ public class ProductInfo {
     this.bonus = (map.get("bonus") == null) ? null : (Integer) map.get("bonus");
     this.quantity = (map.get("quantity") == null) ? null : (Integer) map.get("quantity");
     this.total = (map.get("total") == null) ? null : (Double) map.get("total");
+
+    if(map.get("BasketItem") != null){
+      Map<String, Object> basketMap = (Map<String, Object>) map.get("BasketItem");
+      basketItem = new BasketItem();
+      basketItem.setId((Integer) basketMap.get("id"));
+      basketItem.setQuantity((Integer) basketMap.get("quantity"));
+      basketItem.setProductId((Integer) basketMap.get("ProductId"));
+    }
   }
+
   // Getters & Setters
+  public BasketItem getBasketItem(){
+    return basketItem;
+  }
+
   public Integer getId() {
     return id;
   }

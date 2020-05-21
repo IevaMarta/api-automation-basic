@@ -36,6 +36,18 @@ public class BaseCalls {
             then().
             log().ifValidationFails();
   }
+  public ValidatableResponse delete(String link){
+    return  RestAssured.
+            given().
+            log().ifValidationFails().
+            header("Authorization", "Bearer " + getToken()).
+            contentType(ContentType.JSON).
+            body("{}").
+            when().
+            delete(BASE_PAGE + link).
+            then().
+            log().ifValidationFails();
+  }
   private String getToken(){
     UserLogInResponse loggedInUser = (UserLogInResponse) TestCaseContext.getLedger().get("loggedInUser");
     return ((loggedInUser == null) ? "" : loggedInUser.getToken());
