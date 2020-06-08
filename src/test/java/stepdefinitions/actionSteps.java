@@ -55,4 +55,10 @@ public class actionSteps {
   public void i_try_to_log_in_with_the_following_data(DataTable dataTable) {
     PageManager.getPage("Login").doAction("try to log in", dataTable);
   }
+
+  @And("I change password with the following data:")
+  public void i_change_password_with_the_following_data(DataTable dataTable) {
+    PageManager.getPage("Change password").doAction("change password", dataTable);
+  }
+
 }

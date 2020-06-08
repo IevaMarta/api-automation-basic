@@ -13,6 +13,7 @@ public class PageManager {
     private static DeliveryOptionsPage deliveryOptionsPage = new DeliveryOptionsPage();
     private static PaymentOptionsPage paymentOptionsPage = new PaymentOptionsPage();
     private static OrderCompletionPage orderCompletionPage = new OrderCompletionPage();
+    private static ChangePasswordPage changePasswordPage = new ChangePasswordPage();
     // Methods
     public static BasePage getPage(String page){
         switch(page.toLowerCase()){
@@ -25,6 +26,7 @@ public class PageManager {
             case "delivery options": return deliveryOptionsPage;
             case "payment options" : return paymentOptionsPage;
             case "order completion": return orderCompletionPage;
+            case "change password" : return changePasswordPage;
             default                : throw new Error(page + " is undefined");
         }
     }
